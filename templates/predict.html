@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты предсказания</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 300px; /* Ограничиваем ширину изображения */
+            height: auto; /* Сохраняем пропорции */
+            margin: 10px; /* Отступ между изображениями */
+        }
+        .result-container {
+            text-align: center; /* Центрируем основной блок */
+            margin: 20px 0; /* Отступы сверху и снизу */
+        }
+        .class-images-container {
+            text-align: center; /* Центрируем изображения */
+            margin-top: 20px; /* Отступ сверху */
+        }
+        h3 {
+            margin-bottom: 10px; /* Отступ между текстом и изображениями */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Результаты предсказания</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image">
+        <p><strong>Предсказанный класс:</strong> {{ predicted_class }}</p>
+        <p><strong>Уверенность:</strong> {{ confidence }}%</p>
+    </div>
+
+    <div class="class-images-container">
+        <h3>Изображения класса {{ predicted_class }}</h3>
+        {% for image in predicted_class_images %}
+            <img src="{{ image }}" alt="Class Image">
+        {% endfor %}
+    </div>
+
+    <div class="result-container">
+        <a href="/">На главную</a>
+    </div>
+</body>
+</html>
+
+
+
+
